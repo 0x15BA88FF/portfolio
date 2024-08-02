@@ -2,29 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { @apply bg-secondary-800; }
+::-webkit-scrollbar-thumb { @apply bg-secondary-600 rounded-xl; }
+::-webkit-scrollbar-thumb:hover { @apply bg-secondary-700; }
+
+body { cursor: url("/cursor.svg"), auto }
+a:hover { cursor: url("/cursor-hover.svg"), auto }
+
+.outer-cursor {
+    background-image: url("/outer-cursor.svg");
+}
+  
+#cursor-blob {
+    background-color: white;
+    height: 34vmax;
+    aspect-ratio: 1;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    animation: rotate 20s infinite;
+    opacity: 0.3;
+    z-index: 10;
+    filter: blur(12vmax);
+    pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
+.card {
+    transition: transform 0.1s;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
-body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+
+.text-gradient {
+    white-space: nowrap;
+    background: linear-gradient(90deg, #00c2ff, #ff0075, #00c2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%;
+    animation: gradient-pan linear 3s infinite;
 }
 
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
+@keyframes gradient-pan {
+    from { background-position: 0%; }
+    to { background-position: -200%; }
 }
