@@ -27,7 +27,7 @@ export default function Navbar() {
     return (
         <motion.div className="fixed left-0 right-0 bottom-0 transform" animate={{ scale: 1 }} initial={{ scale: 0 }}>
             <nav ref={ menuRef } className="fixed left-0 right-0 bottom-0 transform z-50 xs:bottom-8 xs:left-1/2 xs:right-auto xs:-translate-x-1/2">
-                <div className="relative bg-background-900/40 z-20 overflow-hidden xs:rounded-lg backdrop-blur-xl">
+                <div className="relative bg-background-overlay/40 z-20 overflow-hidden xs:rounded-lg backdrop-blur-xl">
                     <div className="relative w-full">
                         <div className="flex items-center justify-between gap-2">
                             <Link className="nav-link p-4 pb-4" href="/">Home</Link>
@@ -35,7 +35,7 @@ export default function Navbar() {
                             <Link className="nav-link p-4 pb-4" href="/achievements">Achievements</Link>
                             <Link className="nav-link p-4 pb-4" href="/about">About</Link>
                         </div>
-                        <div ref={ indicatorRef } className="bg-accent-500 absolute left-0 bottom-1/4 w-full h-[3px] bg-white origin-left transition-all" />
+                        <div ref={ indicatorRef } className="bg-primary absolute left-0 bottom-1/4 w-full h-[3px] origin-left transition-all" />
                     </div>
                 </div>
             </nav>

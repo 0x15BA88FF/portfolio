@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { @apply bg-secondary-800; }
-::-webkit-scrollbar-thumb { @apply bg-secondary-600 rounded-xl; }
-::-webkit-scrollbar-thumb:hover { @apply bg-secondary-700; }
+::-webkit-scrollbar-track { @apply bg-background-base; }
+::-webkit-scrollbar-thumb { @apply bg-background-overlay rounded-xl; }
+::-webkit-scrollbar-thumb:hover { @apply bg-primary; }
 
 body { cursor: url("/cursor.svg"), auto }
 a:hover { cursor: url("/cursor-hover.svg"), auto }
@@ -32,9 +32,9 @@ a:hover { cursor: url("/cursor-hover.svg"), auto }
 }
 
 .card {
-    transition: transform 0.1s;
-    perspective: 1000px;
-    transform-style: preserve-3d;
+    /* transition: transform 0.1s; */
+    /* perspective: 1000px; */
+    /* transform-style: preserve-3d; */
 }
 
 

@@ -12,56 +12,78 @@ export default function SkillTree() {
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
         const nodes = [
-            { x: 0,              y: 0,        radius: 50,    color: "#15ba88",       label: "My Skills" },
-
-            { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Fronend" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "HTML" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "CSS / SCSS" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Tailwind.css" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Next.js" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "React" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Vue.js" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "WASM" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Redux" },
-
-            { x: 0,              y: 200,      radius: 50,    color: "#4BE1D0",      label: "Backend" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Node.js" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Express" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Django" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Firebase" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "MongoDB" },
-
-            { x: -200,           y: 0,        radius: 50,    color: "#69E14B",    label: "Mobile" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "React Native" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Flutter" },
-
-            { x: 200,            y: 0,        radius: 50,    color: "#E1624B",    label: "Desktop / CLI" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Electron" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Rust" },
-
-            { x: 200,            y: 0,        radius: 50,    color: "#E1624B",    label: "Languages" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "C" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "C++" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Python" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Javascript" },
-                { x: 0,              y: -200,     radius: 50,    color: "#8A4BE1",     label: "Typescript" },
-        ];
-
-        const edges = [
-            { from: 0, to: 1 },
+            { x: centerX, y: centerY, radius: 50, color: "#15ba88", label: "My Skills", children: [
+                { radius: 50, color: "#D13CF6", label: "Frontend", children: [
+                    { radius: 50, label: "HTML", children: []},
+                    { radius: 50, label: "CSS / SCSS / SASS", children: []},
+                    { radius: 50, label: "Tailwind.css", children: []},
+                    { radius: 50, label: "React.js", children: []},
+                    { radius: 50, label: "Vue.js", children: []},
+                    { radius: 50, label: "Svelte.js", children: []},
+                ]},
+                { radius: 50, color: "#F63C3C", label: "Backend", children: [
+                    { radius: 50, color: "#F6933C", label: "Runtimes / Servers", children: [
+                        { radius: 50, label: "Node.js", children: []},
+                        { radius: 50, label: "Express.js", children: []},
+                        { radius: 50, label: "Django", children: []},
+                        { radius: 50, label: "Flask", children: []},
+                    ]},
+                    { radius: 50, color: "#F6DA3C", label: "Databases", children: [
+                        { radius: 50, label: "MongoDB", children: []},
+                        { radius: 50, label: "MongoDB", children: []},
+                    ]},
+                    { radius: 50, color: "#B5F63C", label: "Services", children: [
+                        { radius: 50, label: "Firebase", children: []},
+                        { radius: 50, label: "AWS", children: []},
+                        { radius: 50, label: "Vercel", children: []},
+                    ]},
+                ]},
+                { radius: 50, color: "#3CE4F6", label: "Mobile", children: [
+                    { radius: 50, label: "React Native", children: []},
+                    { radius: 50, label: "Flutters", children: []},
+                ]},
+                { radius: 50, color: "#3C61F6", label: "Desktop / CLI", children: [
+                    { radius: 50, label: "Electron", children: []},
+                    { radius: 50, label: "Qt", children: []},
+                    { radius: 50, label: "GTK", children: []},
+                    { radius: 50, label: "Charmbracelet", children: []},
+                ]},
+                { radius: 50, color: "#F63CAC", label: "Languages", children: [
+                    { radius: 50, label: "Python", children: []},
+                    { radius: 50, label: "Javascript", children: []},
+                    { radius: 50, label: "Typescript", children: []},
+                    { radius: 50, label: "C", children: []},
+                    { radius: 50, label: "C++", children: []},
+                    { radius: 50, label: "C#", children: []},
+                    { radius: 50, label: "Rust", children: []},
+                    { radius: 50, label: "Go", children: []},
+                ]},
+                { radius: 50, color: "#454545", label: "Tools", children: [
+                    { radius: 50, label: "Git", children: []},
+                    { radius: 50, label: "Docker", children: []},
+                    { radius: 50, label: "Linux", children: []},
+                ]},
+            ]}
         ];
 
         function drawNode(node) {
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+
             ctx.fillStyle = node.color;
             ctx.fill();
+
             ctx.strokeStyle = "white";
             ctx.stroke();
+
             ctx.closePath();
             ctx.fillStyle = "white";
             ctx.textAlign = "center";
@@ -69,15 +91,38 @@ export default function SkillTree() {
             ctx.fillText(node.label, node.x, node.y);
         }
 
-        function drawEdge(edge) {
-            const fromNode = nodes[edge.from];
-            const toNode = nodes[edge.to];
+        function drawEdge(parent, child) {
+            const angle = Math.atan2(child.y - parent.y, child.x - parent.x);
+            const startX = parent.x + Math.cos(angle) * parent.radius;
+            const startY = parent.y + Math.sin(angle) * parent.radius;
+            const endX = child.x - Math.cos(angle) * child.radius;
+            const endY = child.y - Math.sin(angle) * child.radius;
+
             ctx.beginPath();
-            ctx.moveTo(fromNode.x, fromNode.y);
-            ctx.lineTo(toNode.x, toNode.y);
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
             ctx.strokeStyle = "white";
             ctx.stroke();
             ctx.closePath();
+        }
+
+        function positionChildren(parent, depth=1) {
+            const baseDistance = 1000;
+            const angleIncrement = (2 * Math.PI) / parent.children.length;
+
+            parent.children.forEach((child, index) => {
+                const angle = index * angleIncrement;
+                const distance = baseDistance / depth;
+
+                child.x = parent.x + Math.cos(angle) * distance;
+                child.y = parent.y + Math.sin(angle) * distance;
+                child.color = child.color || parent.color;
+
+                drawEdge(parent, child);
+                drawNode(child);
+
+                if (child.children) positionChildren(child, depth + 1)
+            });
         }
 
         function drawSkillTree() {
@@ -85,8 +130,10 @@ export default function SkillTree() {
             ctx.save();
             ctx.translate(offset.x, offset.y);
             ctx.scale(scale, scale);
-            edges.forEach(drawEdge);
-            nodes.forEach(drawNode);
+            nodes.forEach(node => {
+                drawNode(node);
+                if (node.children) positionChildren(node)
+            });
             ctx.restore();
         }
 
@@ -104,20 +151,44 @@ export default function SkillTree() {
         };
 
         const handleMouseMove = (event) => {
-            if (dragging) {
-                setOffset({ x: event.clientX - dragStart.x, y: event.clientY - dragStart.y });
-            }
+            if (dragging) setOffset({ x: event.clientX - dragStart.x, y: event.clientY - dragStart.y })
         };
 
-        const handleMouseUp = () => {
-            setDragging(false);
-        };
+        const handleMouseUp = () => { setDragging(false); };
+
+        const handleClick = (event) => {
+            const clickX = (event.clientX - offset.x) / scale;
+            const clickY = (event.clientY - offset.y) / scale;
+
+            nodes.forEach(node => {
+                if (isNodeClicked(node, clickX, clickY)) zoomToNode(node)
+
+               node.children?.forEach(child => {
+                    if (isNodeClicked(child, clickX, clickY)) zoomToNode(child)
+                });
+            });
+        }
+
+        const isNodeClicked = (node, x, y) => {
+            const dx = x - node.x;
+            const dy = y - node.y;
+            return Math.sqrt(dx * dx + dy * dy) < node.radius;
+        }
+
+        const zoomToNode = (node) => {
+            const newOffsetX = canvas.width / 2 - node.x * scale;
+            const newOffsetY = canvas.height / 2 - node.y * scale;
+
+            setOffset({ x: newOffsetX, y: newOffsetY });
+            setScale(2);
+        }
 
         canvas.addEventListener("wheel", handleWheel);
         canvas.addEventListener("mousedown", handleMouseDown);
         canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("mouseup", handleMouseUp);
         canvas.addEventListener("mouseleave", handleMouseUp);
+        canvas.addEventListener("click", handleClick);
 
         return () => {
             canvas.removeEventListener("wheel", handleWheel);
@@ -125,10 +196,11 @@ export default function SkillTree() {
             canvas.removeEventListener("mousemove", handleMouseMove);
             canvas.removeEventListener("mouseup", handleMouseUp);
             canvas.removeEventListener("mouseleave", handleMouseUp);
+            canvas.removeEventListener("click", handleClick);
         };
     }, [scale, offset, dragging, dragStart]);
 
     return (
-        <canvas ref={ canvasRef } className="w-full aspect-video border-2 border-primary-500 bg-primary-500/20 rounded-lg" id="skillTreeCanvas" ></canvas>
+        <canvas ref={ canvasRef } className="w-full border-2 border-primary rounded-lg" id="skillTreeCanvas"></canvas>
     );
 }
