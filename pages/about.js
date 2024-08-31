@@ -3,44 +3,45 @@ import { BsFillLaptopFill } from 'react-icons/bs';
 import { FaDatabase, FaMobile, FaGithub } from 'react-icons/fa';
 import { AiOutlineDesktop } from 'react-icons/ai';
 import Card from '@/components/Card';
-import { SiHtml5, SiCss3, SiSass, SiJavascript, SiTypescript, SiPython, SiNodedotjs, SiFirebase, SiDjango, SiWebassembly,  SiMongodb, SiExpress, SiReact, SiRedux, SiNextdotjs, SiVuedotjs, SiTailwindcss, SiBootstrap } from 'react-icons/si';
+// import { SiHtml5, SiCss3, SiSass, SiJavascript, SiTypescript, SiPython, SiNodedotjs, SiFirebase, SiDjango, SiWebassembly,  SiMongodb, SiExpress, SiReact, SiRedux, SiNextdotjs, SiVuedotjs, SiTailwindcss, SiBootstrap } from 'react-icons/si';
 
 import Link from 'next/link';
 import Image from "next/image";
 import SkillTree from '@/components/SkillTree';
 
-const About = () => {
+export default function About() {
     return (
         <section className="p-2 lg:flex lg:h-screen lg:p-0 lg:px-4 gap-4 backdrop-blur-md">
             <div className="my-4 flex flex-col gap-4 lg:w-3/12 lg:h-full lg:overflow-scroll lg:p-4">
                 <div className="flex gap-4 items-center lg:flex-col lg:items-start">
                     <Image width={60} height={60} src="/avatar.png" alt="pascal nkornyui" className="rounded-full lg:w-[200px] lg:h-[200px]" />
                     <div>
-                        <h2 className="text-2xl font-bold">Pascal Nkornyui . <span className="font-normal">He / Him</span></h2>
-                        <p>@0x15b88</p>
+                        <h2 className="text-2xl font-bold pointer-events-auto">Pascal Nkornyui . <span className="font-normal">He / Him</span></h2>
+                        <p className="pointer-events-auto">@0x15b88</p>
                     </div>
                 </div>
-                <p className="text-base">building software, taking advantage of the data I can get my hands on 📱.. code to find n&#36; solve problems 🐱‍💻</p>
+                <p className="text-base pointer-events-auto">building software, taking advantage of the data I can get my hands on 📱.. code to find n&#36; solve problems 🐱‍💻</p>
                 <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 pointer-events-auto">
                         <HiLocationMarker className="w-[24px] h-[24px]"/>
                         <p>Accra, Ghana.</p>
                     </div>
 
-                    <Link href="https://github.com/pascall-de-creator" className="flex items-center gap-2">
+                    <Link href="https://github.com/pascall-de-creator" className="flex items-center gap-2 pointer-events-auto">
                         <FaGithub className="w-[24px] h-[24px]"/>
                         <p>Github.</p>
                     </Link>
 
-                    <Link href="https://github.com/pascall-de-creator" className="flex items-center gap-2">
+                    <Link href="https://github.com/pascall-de-creator" className="flex items-center gap-2 pointer-events-auto">
                         <FaGithub className="w-[24px] h-[24px]"/>
                         <p>Github.</p>
                     </Link>
                 </div>
-                <Link href="/resume.pdf" className="p-4 border-2 border-primary bg-primary/40 rounded-lg flex items-center justify-center">View CV</Link>
+
+                <Link href="/resume.pdf" className="p-4 border-2 border-primary bg-primary/40 rounded-lg flex items-center justify-center pointer-events-auto">View CV</Link>
             </div>
 
-            <div className="flex flex-col gap-8 p-4 pb-28 overflow-y-scroll lg:w-9/12">
+            <div className="flex flex-col gap-8 p-4 pb-28 overflow-y-scroll lg:w-9/12 pointer-events-auto">
                 <div className="w-full p-4 flex flex-col items-center gap-4">
                     <h1 className="text-2xl font-semibold">Contributions To</h1>
                     <div className="w-full flex flex-wrap gap-4 items-center justify-center p-4 bg-primary/40 border-2 border-primary rounded-lg">
@@ -104,5 +105,3 @@ const About = () => {
         </section>
     );
 }
- 
-export default About;

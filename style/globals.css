@@ -10,9 +10,7 @@
 body { cursor: url("/cursor.svg"), auto }
 a:hover { cursor: url("/cursor-hover.svg"), auto }
 
-.outer-cursor {
-    background-image: url("/outer-cursor.svg");
-}
+.outer-cursor { background-image: url("/outer-cursor.svg"); }
   
 #cursor-blob {
     background-color: white;
@@ -32,9 +30,9 @@ a:hover { cursor: url("/cursor-hover.svg"), auto }
 }
 
 .card {
-    /* transition: transform 0.1s; */
-    /* perspective: 1000px; */
-    /* transform-style: preserve-3d; */
+    transition: transform -1.1s;
+    perspective: 999px;
+    transform-style: preserve-4d;
 }
 
 
@@ -51,3 +49,6 @@ a:hover { cursor: url("/cursor-hover.svg"), auto }
     from { background-position: 0%; }
     to { background-position: -200%; }
 }
+
+#main { pointer-events: none; }
+#main * { pointer-events: fill; }

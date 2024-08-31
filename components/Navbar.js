@@ -25,9 +25,9 @@ export default function Navbar() {
     }, [path]);
 
     return (
-        <motion.div className="fixed left-0 right-0 bottom-0 transform" animate={{ scale: 1 }} initial={{ scale: 0 }}>
-            <nav ref={ menuRef } className="fixed left-0 right-0 bottom-0 transform z-50 xs:bottom-8 xs:left-1/2 xs:right-auto xs:-translate-x-1/2">
-                <div className="relative bg-background-overlay/40 z-20 overflow-hidden xs:rounded-lg backdrop-blur-xl">
+        <motion.div className="fixed left-0 right-0 bottom-0 transform z-40" animate={{ scale: 1 }} initial={{ scale: 0 }}>
+            <nav ref={ menuRef } className="fixed left-0 right-0 bottom-0 transform z-40 xs:bottom-8 xs:left-1/2 xs:right-auto xs:-translate-x-1/2">
+                <div className="relative bg-background-overlay/40 overflow-hidden xs:rounded-lg backdrop-blur-xl">
                     <div className="relative w-full">
                         <div className="flex items-center justify-between gap-2">
                             <Link className="nav-link p-4 pb-4" href="/">Home</Link>

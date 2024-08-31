@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 export default function OuterCursor() {
-    const cursorRef = useRef();
     const blobRef = useRef();
+    const cursorRef = useRef();
 
     useEffect(() => {
         window.onpointermove = event => {
@@ -22,7 +22,7 @@ export default function OuterCursor() {
 
     return (
         <>
-            <div ref={ cursorRef } className="fixed w-[36px] h-[36px] outer-cursor pointer-events-none" />
+            <div ref={ cursorRef } className="fixed z-50 w-[36px] h-[36px] outer-cursor pointer-events-none" />
             <div ref={ blobRef } id="cursor-blob"></div>
         </>
     );

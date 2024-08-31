@@ -19,7 +19,5 @@ export default function Card({ className, sesitivity, children }) {
 
     const handleMouseLeave = () => cardRef.current.style.transform = "rotateX(0deg) rotateY(0deg)";
 
-    return (
-        <div className={ `card ${ className }` } ref={ cardRef } onMouseMove={ handleMouseMove } onMouseLeave={ handleMouseLeave }>{ children }</div>
-    );
+    return <div className={ `card pointer-events-auto ${ className }` } ref={ cardRef } onMouseMove={ handleMouseMove } onMouseLeave={ handleMouseLeave }>{ children }</div>;
 };
