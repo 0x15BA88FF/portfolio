@@ -1,6 +1,6 @@
 import { HiLocationMarker } from 'react-icons/hi';
 import { BsFillLaptopFill } from 'react-icons/bs';
-import { FaDatabase, FaMobile, FaGithub } from 'react-icons/fa';
+import { FaDatabase, FaMobile, FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
 import { AiOutlineDesktop } from 'react-icons/ai';
 import Card from '@/components/Card';
 // import { SiHtml5, SiCss3, SiSass, SiJavascript, SiTypescript, SiPython, SiNodedotjs, SiFirebase, SiDjango, SiWebassembly,  SiMongodb, SiExpress, SiReact, SiRedux, SiNextdotjs, SiVuedotjs, SiTailwindcss, SiBootstrap } from 'react-icons/si';
@@ -20,7 +20,7 @@ export default function About() {
                         <p className="pointer-events-auto">@0x15b88</p>
                     </div>
                 </div>
-                <p className="text-base pointer-events-auto">building software, taking advantage of the data I can get my hands on 📱.. code to find n&#36; solve problems 🐱‍💻</p>
+                <p className="text-base pointer-events-auto">building software, taking advantage of the data I can get my hands on 📱.. code to find n&apos; solve problems 🐱‍💻</p>
                 <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2 pointer-events-auto">
                         <HiLocationMarker className="w-[24px] h-[24px]"/>
@@ -33,8 +33,13 @@ export default function About() {
                     </Link>
 
                     <Link href="https://github.com/pascall-de-creator" className="flex items-center gap-2 pointer-events-auto">
-                        <FaGithub className="w-[24px] h-[24px]"/>
-                        <p>Github.</p>
+                        <FaLinkedin className="w-[24px] h-[24px]"/>
+                        <p>LinkedIn.</p>
+                    </Link>
+
+                    <Link href="tel:0000000000" className="flex items-center gap-2 pointer-events-auto">
+                        <FaPhone className="w-[24px] h-[24px]"/>
+                        <p>Contact.</p>
                     </Link>
                 </div>
 

@@ -1,10 +1,10 @@
-'use client';
-
 import { useEffect, useRef, useState } from 'react';
+import { AiOutlineFullscreen, AiOutlineFullscreenExit, AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai';
 
 export default function SkillTree() {
     const canvasRef = useRef(null);
     const [scale, setScale] = useState(1);
+    const [fullscreen, setFullscreen] = useState(false);
     const [offset, setOffset] = useState({ x: 0, y: 0 });
     const [dragging, setDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
@@ -74,16 +74,13 @@ export default function SkillTree() {
             ]}
         ];
 
-        function drawNode(node) {
+        const drawNode = node => {
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-
             ctx.fillStyle = node.color;
             ctx.fill();
-
             ctx.strokeStyle = "white";
             ctx.stroke();
-
             ctx.closePath();
             ctx.fillStyle = "white";
             ctx.textAlign = "center";
@@ -91,7 +88,7 @@ export default function SkillTree() {
             ctx.fillText(node.label, node.x, node.y);
         }
 
-        function drawEdge(parent, child) {
+        const drawEdge = (parent, child) => {
             const angle = Math.atan2(child.y - parent.y, child.x - parent.x);
             const startX = parent.x + Math.cos(angle) * parent.radius;
             const startY = parent.y + Math.sin(angle) * parent.radius;
@@ -106,7 +103,7 @@ export default function SkillTree() {
             ctx.closePath();
         }
 
-        function positionChildren(parent, depth=1) {
+        const positionChildren = (parent, depth=1) => {
             const baseDistance = 1000;
             const angleIncrement = (2 * Math.PI) / parent.children.length;
 
@@ -121,51 +118,45 @@ export default function SkillTree() {
                 drawEdge(parent, child);
                 drawNode(child);
 
-                if (child.children) positionChildren(child, depth + 1)
+                if (child.children) positionChildren(child, depth + 1);
             });
         }
 
-        function drawSkillTree() {
+        const drawSkillTree = _ => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.save();
             ctx.translate(offset.x, offset.y);
             ctx.scale(scale, scale);
             nodes.forEach(node => {
                 drawNode(node);
-                if (node.children) positionChildren(node)
+                if (node.children) positionChildren(node);
             });
             ctx.restore();
         }
 
         drawSkillTree();
 
-        const handleWheel = (event) => {
+        const handleWheel = event => {
             event.preventDefault();
             const scaleAmount = event.deltaY > 0 ? 0.9 : 1.1;
             setScale(prevScale => Math.max(0.1, Math.min(5, prevScale * scaleAmount)));
         };
 
-        const handleMouseDown = (event) => {
+        const handleMouseDown = event => {
             setDragging(true);
             setDragStart({ x: event.clientX - offset.x, y: event.clientY - offset.y });
         };
 
-        const handleMouseMove = (event) => {
-            if (dragging) setOffset({ x: event.clientX - dragStart.x, y: event.clientY - dragStart.y })
-        };
+        const handleMouseMove = event => dragging && setOffset({ x: event.clientX - dragStart.x, y: event.clientY - dragStart.y });
+        const handleMouseUp = _ => { setDragging(false); };
 
-        const handleMouseUp = () => { setDragging(false); };
-
-        const handleClick = (event) => {
+        const handleClick = event => {
             const clickX = (event.clientX - offset.x) / scale;
             const clickY = (event.clientY - offset.y) / scale;
 
             nodes.forEach(node => {
-                if (isNodeClicked(node, clickX, clickY)) zoomToNode(node)
-
-               node.children?.forEach(child => {
-                    if (isNodeClicked(child, clickX, clickY)) zoomToNode(child)
-                });
+                if (isNodeClicked(node, clickX, clickY)) zoomToNode(node);
+                node.children?.forEach(child => isNodeClicked(child, clickX, clickY) && zoomToNode(child));
             });
         }
 
@@ -175,7 +166,7 @@ export default function SkillTree() {
             return Math.sqrt(dx * dx + dy * dy) < node.radius;
         }
 
-        const zoomToNode = (node) => {
+        const zoomToNode = node => {
             const newOffsetX = canvas.width / 2 - node.x * scale;
             const newOffsetY = canvas.height / 2 - node.y * scale;
 
@@ -183,24 +174,33 @@ export default function SkillTree() {
             setScale(2);
         }
 
+        canvas.addEventListener("click", handleClick);
         canvas.addEventListener("wheel", handleWheel);
-        canvas.addEventListener("mousedown", handleMouseDown);
-        canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("mouseup", handleMouseUp);
         canvas.addEventListener("mouseleave", handleMouseUp);
-        canvas.addEventListener("click", handleClick);
+        canvas.addEventListener("mousedown", handleMouseDown);
+        canvas.addEventListener("mousemove", handleMouseMove);
 
-        return () => {
+        return _ => {
+            canvas.removeEventListener("click", handleClick);
             canvas.removeEventListener("wheel", handleWheel);
-            canvas.removeEventListener("mousedown", handleMouseDown);
-            canvas.removeEventListener("mousemove", handleMouseMove);
             canvas.removeEventListener("mouseup", handleMouseUp);
             canvas.removeEventListener("mouseleave", handleMouseUp);
-            canvas.removeEventListener("click", handleClick);
+            canvas.removeEventListener("mousedown", handleMouseDown);
+            canvas.removeEventListener("mousemove", handleMouseMove);
         };
     }, [scale, offset, dragging, dragStart]);
 
+    const handleZoom = scale => setScale(prevScale => Math.max(0.1, Math.min(5, prevScale + scale)));
+
     return (
-        <canvas ref={ canvasRef } className="w-full border-2 border-primary rounded-lg" id="skillTreeCanvas"></canvas>
+        <div className={ fullscreen && "fixed top-0 left-0 w-screen h-screen bg-background-base" || "p-2 border-2 border-primary rounded-lg" }>
+            <div className="abolute z-20 flex gap-2">
+                <button onClick={ _ => setFullscreen(!fullscreen) } className="w-max h-max p-4 bg-background-overlay/50 hover:bg-background-overlay/80 rounded-lg">{ fullscreen && <AiOutlineFullscreenExit /> || <AiOutlineFullscreen /> }</button>
+                <button onClick={ _ => handleZoom(0.3) } className="w-max h-max p-4 bg-background-overlay/50 hover:bg-background-overlay/80 rounded-lg"><AiOutlineZoomIn /></button>
+                <button onClick={ _ => handleZoom(-0.3) } className="w-max h-max p-4 bg-background-overlay/50 hover:bg-background-overlay/80 rounded-lg"><AiOutlineZoomOut /></button>
+            </div>
+            <canvas ref={ canvasRef } className="w-full" id="skillTreeCanvas"></canvas>
+        </div>
     );
 }
