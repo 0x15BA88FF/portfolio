@@ -11,8 +11,7 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
             <Head>
                 <title>Pascal Nkornyui Portfolio</title>
             </Head>
-            <main className="w-screen h-screen text-text-50 bg-background-500 overflow-hidden">
-                <Spline className="fixed h-screen w-screen z-10" scene="/scene.splinecode" />
+            <main className="w-screen h-screen text-text-50 bg-background-800 overflow-hidden">
                 <section className="fixed z-20 w-full h-full pointer-events-none">
                     <Component {...pageProps} />
                 </section>

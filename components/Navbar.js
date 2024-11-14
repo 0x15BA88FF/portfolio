@@ -27,7 +27,7 @@ export default function Navbar() {
     return (
         <motion.div animate={{ scale: 1 }} initial={{ scale: 0 }} className="fixed left-0 right-0 bottom-0 transform z-40">
             <nav ref={ menuRef } className="fixed left-0 right-0 bottom-0 transform z-40 xs:bottom-8 xs:left-1/2 xs:right-auto xs:-translate-x-1/2">
-                <div className="relative bg-background-950/40 overflow-hidden xs:rounded-lg backdrop-blur-xl shadow-2xl">
+                <div className="relative bg-background-950/90 overflow-hidden xs:rounded-lg backdrop-blur-xl shadow-2xl">
                     <div className="relative w-full">
                         <div className="flex items-center justify-between gap-2">
                             <Link className="nav-link p-4 pb-4" href="/">Home</Link>

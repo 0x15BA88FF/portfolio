@@ -20,56 +20,56 @@ export default function SkillTree() {
         const centerY = canvas.height / 2;
 
         const nodes = [
-            { x: centerX, y: centerY, radius: 50, color: "#15ba88", label: "My Skills", children: [
-                { radius: 50, color: "#74c7ec", label: "Frontend", children: [
-                    { radius: 50, label: "HTML", children: []},
-                    { radius: 50, label: "CSS / SCSS / SASS", children: []},
-                    { radius: 50, label: "Tailwind.css", children: []},
-                    { radius: 50, label: "React.js", children: []},
-                    { radius: 50, label: "Vue.js", children: []},
-                    { radius: 50, label: "Svelte.js", children: []},
+            { x: centerX, y: centerY, radius: 100, color: "#15ba88", label: "My Skills", children: [
+                { radius: 100, color: "#74c7ec", label: "Frontend", children: [
+                    { radius: 100, label: "HTML", children: []},
+                    { radius: 100, label: "CSS", children: []},
+                    { radius: 100, label: "Tailwind.css", children: []},
+                    { radius: 100, label: "React.js", children: []},
+                    { radius: 100, label: "Vue.js", children: []},
+                    { radius: 100, label: "Svelte.js", children: []},
                 ]},
-                { radius: 50, color: "#f38ba8", label: "Backend", children: [
-                    { radius: 50, color: "#f5e0dc", label: "Runtimes / Servers", children: [
-                        { radius: 50, label: "Node.js", children: []},
-                        { radius: 50, label: "Express.js", children: []},
-                        { radius: 50, label: "Django", children: []},
-                        { radius: 50, label: "Flask", children: []},
+                { radius: 100, color: "#f38ba8", label: "Backend", children: [
+                    { radius: 100, color: "#f5e0dc", label: "Servers", children: [
+                        { radius: 100, label: "Node.js", children: []},
+                        { radius: 100, label: "Express.js", children: []},
+                        { radius: 100, label: "Django", children: []},
+                        { radius: 100, label: "Flask", children: []},
                     ]},
-                    { radius: 50, color: "#eba0ac", label: "Databases", children: [
-                        { radius: 50, label: "MongoDB", children: []},
-                        { radius: 50, label: "MongoDB", children: []},
+                    { radius: 100, color: "#eba0ac", label: "Databases", children: [
+                        { radius: 100, label: "MongoDB", children: []},
+                        { radius: 100, label: "MongoDB", children: []},
                     ]},
-                    { radius: 50, color: "#fab387", label: "Services", children: [
-                        { radius: 50, label: "Firebase", children: []},
-                        { radius: 50, label: "AWS", children: []},
-                        { radius: 50, label: "Vercel", children: []},
+                    { radius: 100, color: "#fab387", label: "Services", children: [
+                        { radius: 100, label: "Firebase", children: []},
+                        { radius: 100, label: "AWS", children: []},
+                        { radius: 100, label: "Vercel", children: []},
                     ]},
                 ]},
-                { radius: 50, color: "#f9e2af", label: "Mobile", children: [
-                    { radius: 50, label: "React Native", children: []},
-                    { radius: 50, label: "Flutters", children: []},
+                { radius: 100, color: "#f9e2af", label: "Mobile", children: [
+                    { radius: 100, label: "React Native", children: []},
+                    { radius: 100, label: "Flutters", children: []},
                 ]},
-                { radius: 50, color: "#a6e3a1", label: "Desktop / CLI", children: [
-                    { radius: 50, label: "Electron", children: []},
-                    { radius: 50, label: "Qt", children: []},
-                    { radius: 50, label: "GTK", children: []},
-                    { radius: 50, label: "Charmbracelet", children: []},
+                { radius: 100, color: "#a6e3a1", label: "Desktop / CLI", children: [
+                    { radius: 100, label: "Electron", children: []},
+                    { radius: 100, label: "Qt", children: []},
+                    { radius: 100, label: "GTK", children: []},
+                    { radius: 100, label: "Charm", children: []},
                 ]},
-                { radius: 50, color: "#89b4fa", label: "Languages", children: [
-                    { radius: 50, label: "Python", children: []},
-                    { radius: 50, label: "Javascript", children: []},
-                    { radius: 50, label: "Typescript", children: []},
-                    { radius: 50, label: "C", children: []},
-                    { radius: 50, label: "C++", children: []},
-                    { radius: 50, label: "C#", children: []},
-                    { radius: 50, label: "Rust", children: []},
-                    { radius: 50, label: "Go", children: []},
+                { radius: 100, color: "#89b4fa", label: "Languages", children: [
+                    { radius: 100, label: "Python", children: []},
+                    { radius: 100, label: "Javascript", children: []},
+                    { radius: 100, label: "Typescript", children: []},
+                    { radius: 100, label: "C", children: []},
+                    { radius: 100, label: "C++", children: []},
+                    { radius: 100, label: "C#", children: []},
+                    { radius: 100, label: "Rust", children: []},
+                    { radius: 100, label: "Go", children: []},
                 ]},
-                { radius: 50, color: "#313244", label: "Tools", children: [
-                    { radius: 50, label: "Git", children: []},
-                    { radius: 50, label: "Docker", children: []},
-                    { radius: 50, label: "Linux", children: []},
+                { radius: 100, color: "#313244", label: "Tools", children: [
+                    { radius: 100, label: "Git", children: []},
+                    { radius: 100, label: "Docker", children: []},
+                    { radius: 100, label: "Linux", children: []},
                 ]},
             ]}
         ];
@@ -85,6 +85,7 @@ export default function SkillTree() {
             ctx.fillStyle = "white";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
+            ctx.font = "bold 28px sans serif";
             ctx.fillText(node.label, node.x, node.y);
         }
 
@@ -104,7 +105,7 @@ export default function SkillTree() {
         }
 
         const positionChildren = (parent, depth=1) => {
-            const baseDistance = 1000;
+            const baseDistance = 1500;
             const angleIncrement = (2 * Math.PI) / parent.children.length;
 
             parent.children.forEach((child, index) => {

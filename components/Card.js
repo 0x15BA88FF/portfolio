@@ -7,7 +7,7 @@ export default function Card({ className, sesitivity, children }) {
     const handleMouseLeave = () => cardRef.current.style.transform = "rotateX(0deg) rotateY(0deg)";
 
     const handleMouseMove = (event) => {
-        const sensitivity = sesitivity || 0.1;
+        const sensitivity = sesitivity || 0.05;
 
         const rect = cardRef.current.getBoundingClientRect();
         const x = event.clientX - rect.left - rect.width / 2;
