@@ -9,11 +9,11 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
     return (
         <>
             <Head>
-                <title>Sprout Forum</title>
+                <title>Pascal Nkornyui Portfolio</title>
             </Head>
-            <main className="w-screen h-screen text-text-50 bg-background-base overflow-hidden">
+            <main className="w-screen h-screen text-text-50 bg-background-500 overflow-hidden">
                 <Spline className="fixed h-screen w-screen z-10" scene="/scene.splinecode" />
-                <section className="fixed w-full h-full z-20 pointer-events-none">
+                <section className="fixed z-20 w-full h-full pointer-events-none">
                     <Component {...pageProps} />
                 </section>
                 <OuterCursor />

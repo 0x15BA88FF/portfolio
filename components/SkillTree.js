@@ -4,9 +4,9 @@ import { AiOutlineFullscreen, AiOutlineFullscreenExit, AiOutlineZoomIn, AiOutlin
 export default function SkillTree() {
     const canvasRef = useRef(null);
     const [scale, setScale] = useState(1);
+    const [dragging, setDragging] = useState(false);
     const [fullscreen, setFullscreen] = useState(false);
     const [offset, setOffset] = useState({ x: 0, y: 0 });
-    const [dragging, setDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function SkillTree() {
 
         const nodes = [
             { x: centerX, y: centerY, radius: 50, color: "#15ba88", label: "My Skills", children: [
-                { radius: 50, color: "#D13CF6", label: "Frontend", children: [
+                { radius: 50, color: "#74c7ec", label: "Frontend", children: [
                     { radius: 50, label: "HTML", children: []},
                     { radius: 50, label: "CSS / SCSS / SASS", children: []},
                     { radius: 50, label: "Tailwind.css", children: []},
@@ -29,34 +29,34 @@ export default function SkillTree() {
                     { radius: 50, label: "Vue.js", children: []},
                     { radius: 50, label: "Svelte.js", children: []},
                 ]},
-                { radius: 50, color: "#F63C3C", label: "Backend", children: [
-                    { radius: 50, color: "#F6933C", label: "Runtimes / Servers", children: [
+                { radius: 50, color: "#f38ba8", label: "Backend", children: [
+                    { radius: 50, color: "#f5e0dc", label: "Runtimes / Servers", children: [
                         { radius: 50, label: "Node.js", children: []},
                         { radius: 50, label: "Express.js", children: []},
                         { radius: 50, label: "Django", children: []},
                         { radius: 50, label: "Flask", children: []},
                     ]},
-                    { radius: 50, color: "#F6DA3C", label: "Databases", children: [
+                    { radius: 50, color: "#eba0ac", label: "Databases", children: [
                         { radius: 50, label: "MongoDB", children: []},
                         { radius: 50, label: "MongoDB", children: []},
                     ]},
-                    { radius: 50, color: "#B5F63C", label: "Services", children: [
+                    { radius: 50, color: "#fab387", label: "Services", children: [
                         { radius: 50, label: "Firebase", children: []},
                         { radius: 50, label: "AWS", children: []},
                         { radius: 50, label: "Vercel", children: []},
                     ]},
                 ]},
-                { radius: 50, color: "#3CE4F6", label: "Mobile", children: [
+                { radius: 50, color: "#f9e2af", label: "Mobile", children: [
                     { radius: 50, label: "React Native", children: []},
                     { radius: 50, label: "Flutters", children: []},
                 ]},
-                { radius: 50, color: "#3C61F6", label: "Desktop / CLI", children: [
+                { radius: 50, color: "#a6e3a1", label: "Desktop / CLI", children: [
                     { radius: 50, label: "Electron", children: []},
                     { radius: 50, label: "Qt", children: []},
                     { radius: 50, label: "GTK", children: []},
                     { radius: 50, label: "Charmbracelet", children: []},
                 ]},
-                { radius: 50, color: "#F63CAC", label: "Languages", children: [
+                { radius: 50, color: "#89b4fa", label: "Languages", children: [
                     { radius: 50, label: "Python", children: []},
                     { radius: 50, label: "Javascript", children: []},
                     { radius: 50, label: "Typescript", children: []},
@@ -66,7 +66,7 @@ export default function SkillTree() {
                     { radius: 50, label: "Rust", children: []},
                     { radius: 50, label: "Go", children: []},
                 ]},
-                { radius: 50, color: "#454545", label: "Tools", children: [
+                { radius: 50, color: "#313244", label: "Tools", children: [
                     { radius: 50, label: "Git", children: []},
                     { radius: 50, label: "Docker", children: []},
                     { radius: 50, label: "Linux", children: []},
@@ -194,11 +194,11 @@ export default function SkillTree() {
     const handleZoom = scale => setScale(prevScale => Math.max(0.1, Math.min(5, prevScale + scale)));
 
     return (
-        <div className={ fullscreen && "fixed top-0 left-0 w-screen h-screen bg-background-base" || "p-2 border-2 border-primary rounded-lg" }>
-            <div className="abolute z-20 flex gap-2">
-                <button onClick={ _ => setFullscreen(!fullscreen) } className="w-max h-max p-4 bg-background-overlay/50 hover:bg-background-overlay/80 rounded-lg">{ fullscreen && <AiOutlineFullscreenExit /> || <AiOutlineFullscreen /> }</button>
-                <button onClick={ _ => handleZoom(0.3) } className="w-max h-max p-4 bg-background-overlay/50 hover:bg-background-overlay/80 rounded-lg"><AiOutlineZoomIn /></button>
-                <button onClick={ _ => handleZoom(-0.3) } className="w-max h-max p-4 bg-background-overlay/50 hover:bg-background-overlay/80 rounded-lg"><AiOutlineZoomOut /></button>
+        <div className={ fullscreen && "fixed top-0 left-0 w-screen h-screen bg-background-900" || "p-2 border-2 border-primary rounded-lg" }>
+            <div className="abolute z-20 flex gap-2 p-2">
+                <button onClick={ _ => setFullscreen(!fullscreen) } className="w-max h-max p-4 bg-background-950/50 hover:bg-background-overlay/80 rounded-lg">{ fullscreen && <AiOutlineFullscreenExit /> || <AiOutlineFullscreen /> }</button>
+                <button onClick={ _ => handleZoom(0.2) } className="w-max h-max p-4 bg-background-950/50 hover:bg-background-overlay/80 rounded-lg"><AiOutlineZoomIn /></button>
+                <button onClick={ _ => handleZoom(-0.2) } className="w-max h-max p-4 bg-background-950/50 hover:bg-background-overlay/80 rounded-lg"><AiOutlineZoomOut /></button>
             </div>
             <canvas ref={ canvasRef } className="w-full" id="skillTreeCanvas"></canvas>
         </div>

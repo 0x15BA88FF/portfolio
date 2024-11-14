@@ -4,6 +4,7 @@ import { useRef } from 'react';
 
 export default function Card({ className, sesitivity, children }) {
     const cardRef = useRef(null);
+    const handleMouseLeave = () => cardRef.current.style.transform = "rotateX(0deg) rotateY(0deg)";
 
     const handleMouseMove = (event) => {
         const sensitivity = sesitivity || 0.1;
@@ -17,7 +18,5 @@ export default function Card({ className, sesitivity, children }) {
         cardRef.current.style.transform = `rotateX(${ rotateX }deg) rotateY(${ rotateY }deg)`;
     };
 
-    const handleMouseLeave = () => cardRef.current.style.transform = "rotateX(0deg) rotateY(0deg)";
-
-    return <div className={ `card pointer-events-auto ${ className }` } ref={ cardRef } onMouseMove={ handleMouseMove } onMouseLeave={ handleMouseLeave }>{ children }</div>;
+    return <div ref={cardRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className={`card pointer-events-auto ${className}`}>{children}</div>;
 };
