@@ -30,7 +30,7 @@ export default function SkillTree() {
                     { radius: 100, label: "Svelte.js", children: []},
                 ]},
                 { radius: 100, color: "#f38ba8", label: "Backend", children: [
-                    { radius: 100, color: "#f5e0dc", label: "Servers", children: [
+                    { radius: 100, color: "#fab387", label: "Servers", children: [
                         { radius: 100, label: "Node.js", children: []},
                         { radius: 100, label: "Express.js", children: []},
                         { radius: 100, label: "Django", children: []},
@@ -38,7 +38,8 @@ export default function SkillTree() {
                     ]},
                     { radius: 100, color: "#eba0ac", label: "Databases", children: [
                         { radius: 100, label: "MongoDB", children: []},
-                        { radius: 100, label: "MongoDB", children: []},
+                        { radius: 100, label: "PostgreSQL", children: []},
+                        { radius: 100, label: "SQLite", children: []},
                     ]},
                     { radius: 100, color: "#fab387", label: "Services", children: [
                         { radius: 100, label: "Firebase", children: []},
