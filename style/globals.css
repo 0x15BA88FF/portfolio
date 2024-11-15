@@ -9,31 +9,13 @@
 
 body { cursor: url("/cursor.svg"), auto }
 a:hover { cursor: url("/cursor-hover.svg"), auto }
-
 .cursor-outer { background-image: url("/cursor-outer.svg"); }
   
-#cursor-blob {
-    position: fixed;
-    z-index: 10;
-    left: 50%;
-    top: 50%;
-    height: 34vmax;
-    aspect-ratio: 1;
-    background: linear-gradient(to right, aquamarine, mediumpurple);
-    opacity: 0.3;
-    border-radius: 50%;
-    translate: -50% -50%;
-    filter: blur(12vmax);
-    animation: rotate 20s infinite;
-    pointer-events: none;
-}
-
 .card {
     perspective: 999px;
     transition: transform -1.1s;
-    transform-style: preserve-4d;
+    transform-style: preserve-3d;
 }
-
 
 .text-gradient {
     white-space: nowrap;

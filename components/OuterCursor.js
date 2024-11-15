@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 
 export default function OuterCursor() {
-    const blobRef = useRef();
     const cursorRef = useRef();
 
     useEffect(() => {
@@ -10,11 +9,7 @@ export default function OuterCursor() {
 
             cursorRef.current.animate(
                 { left: `${ clientX - 11 }px`, top: `${ clientY - 11 }px` },
-                { duration: 500, fill: "forwards",  }
-            );
-            blobRef.current.animate(
-                { left: `${ clientX - 11 }px`, top: `${ clientY - 11 }px` },
-                { duration: 5000, fill: "forwards",  }
+                { duration: 100, fill: "forwards",  }
             );
         }
     }, []);
@@ -22,7 +17,6 @@ export default function OuterCursor() {
     return (
         <>
             <div ref={ cursorRef } className="fixed z-50 w-[36px] h-[36px] cursor-outer pointer-events-none" />
-            <div ref={ blobRef } id="cursor-blob"></div>
         </>
     );
 };
