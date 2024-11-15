@@ -1,7 +1,6 @@
 import Head from "next/head";
 import "@/style/globals.css";
 import Navbar from "@/components/Navbar";
-import Spline from '@splinetool/react-spline';
 import OuterCursor from "@/components/OuterCursor";
 
 
