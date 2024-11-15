@@ -2,34 +2,31 @@ export default function handler(req, res) {
   res.status(200).json(
      [
         {
-          title: "Project One",
-          images: ["/projects/blogr_landing_page.png", "/projects/visual_json.png"],
-          description: "## This is the description for project one.",
-          link: "https://example.com/project-one"
+          title: "Blogr Landing Page",
+          images: ["/projects/blogr_landing_page.png"],
+          description: "A simple langing page designed for the frontend mentors frontend training and challenge website.",
         },
         {
-          title: "Project Two",
+          title: "Redwood.js Website",
           images: ["/projects/redwook_js_website.png"],
-          description: "This is the description for project two.",
-          link: "https://example.com/project-two"
+          description: "Contibutions to the development or the redwood js frontend development framework.",
         },
         {
-          title: "Project Three",
+          title: "Visual Json",
           images: ["/projects/visual_json.png"],
-          description: "This is the description for project three.",
+          description: "A simple development tool i built and use to run GET requests and represent JSON respones into a graphical tree.",
           link: "https://example.com/project-three"
         },
         {
-          title: "Project Three",
+          title: "Setifi",
           images: ["/projects/setifi_module.png"],
-          description: "This is the description for project three.",
-          link: "https://example.com/project-three"
+          description: "A Node.js library used to validate passwords and test their strength complete with documentation and showcase.",
+          link: "https://github.com/0x15BA88FF/setifi"
         },
         {
-          title: "Project Three",
+          title: "Discord Meme Bot",
           images: ["/projects/bot_senpai_discord_bot.png"],
-          description: "This is the description for project three.",
-          link: "https://example.com/project-three"
+          description: "A discord bot designed to scrape memes from the internet and send them on discord.",
         }
       ]
   )
