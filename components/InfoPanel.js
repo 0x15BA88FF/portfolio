@@ -24,7 +24,7 @@ export default function InfoPanel({ close, data }) {
           {data.images.length > 1 && 
             <div className="w-full flex gap-4 overflow-x-scroll">
               {data.images.map((image, idx) => (
-                <Image onClick={_ => setImageIdx(idx)} width={160} height={80} src={image} alt={data.title} className="aspect-video rounded-xl" />
+                <Image onClick={_ => setImageIdx(idx)} key={idx} width={160} height={80} src={image} alt={data.title} className="aspect-video rounded-xl" />
               ))}
             </div>
           }
