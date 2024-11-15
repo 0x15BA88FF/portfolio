@@ -21,7 +21,7 @@ export default function Works() {
             <div className="w-full md:w-[770px] flex flex-col sm:grid grid-col-3 grid-col-1 gap-4 mx-auto pointer-events-auto">
                 {data.map((project, idx) => (
                     <Card key={idx} className="bg-background-800 rounded-2xl overflow-hidden">
-                        <Image onClick={_ => {setProjectIdx(idx); setIsVisible(true)}} width={770} height={450} src={project.images[0]} alt={project.title} className="h-full w-full" />
+                        <Image onClick={_ => {setProjectIdx(idx); setIsVisible(true)}} width={770} height={450} src={project.images[0]} alt={project.name} className="h-full w-full" />
                     </Card>
                 ))} 
             </div>

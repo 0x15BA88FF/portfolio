@@ -20,16 +20,16 @@ export default function InfoPanel({ close, data }) {
             { data.link && <Link href={data.link} className="p-4 bg-background-950/80 rounded-xl hover:bg-background-950"><FaLink /></Link> }
             <button onClick={_ => close() && setImageIdx(0)} className="p-4 bg-background-950/80 rounded-xl hover:bg-background-950"><MdClose /></button>
           </div>
-          <Image width={770} height={450} src={data.images[imageIdx]} alt={data.title} className="w-full aspect-video rounded-2xl" />
+          <Image width={770} height={450} src={data.images[imageIdx]} alt={data.name} className="w-full aspect-video rounded-2xl" />
           {data.images.length > 1 && 
             <div className="w-full flex gap-4 overflow-x-scroll">
               {data.images.map((image, idx) => (
-                <Image onClick={_ => setImageIdx(idx)} key={idx} width={160} height={80} src={image} alt={data.title} className="aspect-video rounded-xl" />
+                <Image onClick={_ => setImageIdx(idx)} key={idx} width={160} height={80} src={image} alt={data.name} className="aspect-video rounded-xl" />
               ))}
             </div>
           }
           <hr className="border-background-600" />
-          <h1 className="text-5xl text-white font-semibold pb-4">{data.title}</h1>
+          <h1 className="text-5xl text-white font-semibold pb-4">{data.name}</h1>
           <article className="prose prose-invert">
             <Markdown>{data.description}</Markdown>
           </article>
