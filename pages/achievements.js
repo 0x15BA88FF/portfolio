@@ -12,8 +12,8 @@ export default function Achivements() {
     const [ achivementIdx, setAchivementIdx ] = useState(0);
     const [ isVisible, setIsVisible ] = useState(false);
 
-    if (error) return <p>Error loading projects.</p>;
-    if (isLoading) return <p>Loading...</p>;
+    if (error) return <div className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-8"><p className="text-xl text-[#f38ba8] font-semibold">That doesn&apos;t look good :/</p></div>;
+    if (isLoading) return <div className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-8"><div className="w-10 h-10 bg-primary animate-bounce rounded-full" /></div>;
     if (data) return (
       <>
         <section className="w-full h-full flex flex-col gap-4 p-4 pb-28 overflow-y-scroll backdrop-blur">
